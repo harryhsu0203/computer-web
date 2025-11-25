@@ -13,9 +13,9 @@ services:
     buildCommand: |
       npm ci
       npm run prisma:generate
+      npx prisma db push
       npm run build
     startCommand: npm start
-    preDeployCommand: npx prisma db push
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
