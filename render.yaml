@@ -1,0 +1,33 @@
+databases:
+  - name: computer-db
+    databaseName: computer
+    plan: free
+    ipAllowList: []
+
+services:
+  - type: web
+    name: computer-web
+    env: node
+    plan: free
+    branch: main
+    buildCommand: |
+      npm ci
+      npm run prisma:generate
+      npm run build
+    startCommand: npm start
+    preDeployCommand: npx prisma db push
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: DATABASE_URL
+        fromDatabase:
+          name: computer-db
+          property: connectionString
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        value: https://computer-web.onrender.com
+      - key: NEXT_PUBLIC_APP_URL
+        value: https://computer-web.onrender.com
+

@@ -1,0 +1,4 @@
+name,description,price,priceInt,stock,sku,category,images
+"MSI Gaming 筆電 15.6吋","RTX4060/16GB/1TB SSD","39900",,"5","MSI-15-R4060","筆電","https://example.com/img1.jpg|https://example.com/img2.jpg"
+"三星 1TB SSD","讀寫高速、五年保固",,"129900","10","SSD-1TB-SAM","儲存裝置","https://example.com/ssd1.jpg"
+
